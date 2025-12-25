@@ -1,44 +1,48 @@
-📱 Card OCR & Verification – React Native
+📱 Card OCR & Verification App – React Native
 📌 Project Overview
 
-This project implements an ID Card OCR and verification flow in a React Native mobile application.
-The app allows users to capture or upload a card image, extract text using on-device OCR, and display the extracted information in a clean, user-friendly confirmation screen.
+This project implements a card capture and OCR-based verification flow in a React Native mobile application using react-native-vision-camera.
 
-The solution is designed to mirror real-world identity verification workflows commonly used in fintech and digital onboarding applications.
+The application allows users to capture a card image using the device camera, perform on-device OCR, and display the extracted information in a clean, user-friendly confirmation UI.
+The flow is designed to resemble real-world identity and document verification workflows.
 
 🎯 Key Features
 
-📸 Card image preview before processing
+📷 Real-time camera integration using Vision Camera
+
+🖼️ Card image preview before processing
 
 🔍 On-device OCR using Google ML Kit
 
 🧠 Automatic text extraction from card images
 
-🖥️ Structured and readable UI for extracted details
+🖥️ Structured and readable confirmation UI
 
-✅ Confirmation step before continuing
+⚠️ Robust error handling with try–catch
 
-⚠️ Robust error handling using try–catch
-
-🚀 Offline OCR processing (no server dependency)
+🚀 Offline processing (no backend required)
 
 🧩 User Flow
 
-User captures or uploads a card image
+User opens the camera screen
 
-Image preview is displayed on the verification screen
+Captures a card image using Vision Camera
+
+Image preview is shown for confirmation
 
 OCR is triggered on user action
 
-Relevant text fields are extracted from the image
+Extracted text is parsed into structured fields
 
-Extracted data is shown in a confirmation UI
+Details are displayed for user verification
 
-User verifies and proceeds to the next step
+User confirms and proceeds to the next step
 
 🛠️ Tech Stack
 
 React Native
+
+react-native-vision-camera
 
 @react-native-ml-kit/text-recognition
 
@@ -47,72 +51,89 @@ JavaScript (ES6+)
 React Navigation
 
 📂 Screens Implemented
-1️⃣ Card Verification Screen
+1️⃣ Card Capture Screen
 
-Displays the uploaded or captured card image
+Uses react-native-vision-camera for camera access
+
+Handles camera permissions
+
+Captures high-quality card images
+
+Passes image path to verification screen
+
+2️⃣ Card Verification Screen
+
+Displays captured card image preview
 
 Performs OCR using ML Kit
 
-Extracts text using pattern matching and parsing logic
+Extracts relevant text using parsing logic
 
-Handles errors gracefully using try–catch
+Handles OCR errors safely with try–catch
 
-Navigates to the details screen with structured data
+Navigates to details confirmation screen
 
-2️⃣ Card Details Confirmation Screen
+3️⃣ Card Details Confirmation Screen
 
-Displays extracted card details in a card-style UI
+Displays extracted details in a card-style layout
 
-Fields are clearly labeled and easy to read
+User-friendly and readable UI
 
-Handles missing or partial data safely
+Graceful handling of missing or partial data
 
-Confirmation button to proceed further
+Confirmation button to continue
 
 🧠 OCR & Data Extraction Logic
 
-Text extracted using Google ML Kit OCR
+OCR performed using Google ML Kit
 
-Pattern-based parsing used to identify structured fields
+Extracted raw text is parsed into structured fields
 
-OCR execution wrapped in try–catch blocks
+Pattern-based extraction logic
 
-Supports fallback values for missing information
+All OCR operations wrapped in try–catch blocks
+
+Fallback values shown when extraction fails
 
 ⚙️ Installation & Setup
 Install Dependencies
+npm install react-native-vision-camera
 npm install @react-native-ml-kit/text-recognition
 
 iOS Setup
 cd ios
 pod install
 
-🧪 Sample Extracted Output (Example)
-Full Name      : Sample User
-Additional Info: Sample Text
-Date           : XX/XX/XXXX
-Identifier     : ABCXXXXXX
+Android Permissions
+
+Camera permission is handled via Vision Camera configuration.
+
+🧪 Sample Extracted Output (Dummy Example)
+Field 1 : Sample Value
+Field 2 : Example Text
+Date    : XX/XX/XXXX
+ID      : XXXX1234
 
 
-⚠️ Note: All sample data shown is dummy data and used for demonstration purposes only.
+⚠️ All displayed data is dummy and for demonstration purposes only.
 
 ✅ Error Handling
 
-OCR failures are caught and logged
+Camera access errors handled gracefully
 
-UI remains stable even when extraction fails
+OCR failures caught using try–catch
 
-User actions are disabled during processing
+UI remains stable during processing
 
-Graceful fallbacks for missing values
+Buttons disabled while OCR is in progress
 
 🚀 Future Enhancements
 
+🖼️ Image pre-processing (crop, rotate, enhance)
+
 ✏️ Editable extracted fields
 
-🧠 Improved parsing and confidence scoring
-
-🖼️ Image pre-processing before OCR
+🧠 OCR confidence scoring
 
 📤 Backend API integration
 
@@ -120,5 +141,5 @@ Graceful fallbacks for missing values
 
 🏁 Conclusion
 
-This project demonstrates a generic, production-ready card OCR verification flow built using React Native.
-It is suitable for identity verification, onboarding flows, and document processing use cases.
+This project demonstrates a generic card capture and OCR verification flow built using React Native and Vision Camera.
+It is suitable for identity verification, onboarding flows, and document processing applications.
