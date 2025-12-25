@@ -1,97 +1,124 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+📱 Card OCR & Verification – React Native
+📌 Project Overview
 
-# Getting Started
+This project implements an ID Card OCR and verification flow in a React Native mobile application.
+The app allows users to capture or upload a card image, extract text using on-device OCR, and display the extracted information in a clean, user-friendly confirmation screen.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+The solution is designed to mirror real-world identity verification workflows commonly used in fintech and digital onboarding applications.
 
-## Step 1: Start Metro
+🎯 Key Features
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+📸 Card image preview before processing
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+🔍 On-device OCR using Google ML Kit
 
-```sh
-# Using npm
-npm start
+🧠 Automatic text extraction from card images
 
-# OR using Yarn
-yarn start
-```
+🖥️ Structured and readable UI for extracted details
 
-## Step 2: Build and run your app
+✅ Confirmation step before continuing
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+⚠️ Robust error handling using try–catch
 
-### Android
+🚀 Offline OCR processing (no server dependency)
 
-```sh
-# Using npm
-npm run android
+🧩 User Flow
 
-# OR using Yarn
-yarn android
-```
+User captures or uploads a card image
 
-### iOS
+Image preview is displayed on the verification screen
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+OCR is triggered on user action
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
+Relevant text fields are extracted from the image
 
-```sh
-bundle install
-```
+Extracted data is shown in a confirmation UI
 
-Then, and every time you update your native dependencies, run:
+User verifies and proceeds to the next step
 
-```sh
-bundle exec pod install
-```
+🛠️ Tech Stack
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+React Native
 
-```sh
-# Using npm
-npm run ios
+@react-native-ml-kit/text-recognition
 
-# OR using Yarn
-yarn ios
-```
+JavaScript (ES6+)
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+React Navigation
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+📂 Screens Implemented
+1️⃣ Card Verification Screen
 
-## Step 3: Modify your app
+Displays the uploaded or captured card image
 
-Now that you have successfully run the app, let's make changes!
+Performs OCR using ML Kit
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+Extracts text using pattern matching and parsing logic
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+Handles errors gracefully using try–catch
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+Navigates to the details screen with structured data
 
-## Congratulations! :tada:
+2️⃣ Card Details Confirmation Screen
 
-You've successfully run and modified your React Native App. :partying_face:
+Displays extracted card details in a card-style UI
 
-### Now what?
+Fields are clearly labeled and easy to read
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
+Handles missing or partial data safely
 
-# Troubleshooting
+Confirmation button to proceed further
 
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+🧠 OCR & Data Extraction Logic
 
-# Learn More
+Text extracted using Google ML Kit OCR
 
-To learn more about React Native, take a look at the following resources:
+Pattern-based parsing used to identify structured fields
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+OCR execution wrapped in try–catch blocks
+
+Supports fallback values for missing information
+
+⚙️ Installation & Setup
+Install Dependencies
+npm install @react-native-ml-kit/text-recognition
+
+iOS Setup
+cd ios
+pod install
+
+🧪 Sample Extracted Output (Example)
+Full Name      : Sample User
+Additional Info: Sample Text
+Date           : XX/XX/XXXX
+Identifier     : ABCXXXXXX
+
+
+⚠️ Note: All sample data shown is dummy data and used for demonstration purposes only.
+
+✅ Error Handling
+
+OCR failures are caught and logged
+
+UI remains stable even when extraction fails
+
+User actions are disabled during processing
+
+Graceful fallbacks for missing values
+
+🚀 Future Enhancements
+
+✏️ Editable extracted fields
+
+🧠 Improved parsing and confidence scoring
+
+🖼️ Image pre-processing before OCR
+
+📤 Backend API integration
+
+🧪 Validation of extracted values
+
+🏁 Conclusion
+
+This project demonstrates a generic, production-ready card OCR verification flow built using React Native.
+It is suitable for identity verification, onboarding flows, and document processing use cases.
