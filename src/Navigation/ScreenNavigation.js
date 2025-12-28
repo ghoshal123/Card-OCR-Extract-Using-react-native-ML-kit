@@ -5,6 +5,8 @@ import InstructionPage from '../screen/pages/InstructionPage';
 import CameraScreen from '../screen/pages/Camera';
 import PanScreen from '../screen/pages/PanScreen';
 import PanCustomerDetails from '../screen/pages/PanDetails';
+import FaceCameraScreen from '../screen/pages/Face';
+import FacePreviewScreen from '../screen/pages/FacePreview';
 
 
 const Stack = createNativeStackNavigator();
@@ -42,6 +44,17 @@ const ScreenNavigation = () => {
                 options={{ headerShown: false }}
             />
 
+            <Stack.Screen
+                name="Face"
+                component={FaceCameraScreen}
+                options={{ headerShown: false }}
+            />
+
+            <Stack.Screen
+                name="FacePreview"
+                component={FacePreviewScreen}
+                options={{ headerShown: false }}
+            />
 
         </Stack.Navigator>
     );

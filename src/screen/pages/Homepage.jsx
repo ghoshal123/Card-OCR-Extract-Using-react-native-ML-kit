@@ -44,6 +44,10 @@ const HomeScreen = ({ navigation, route }) => {
     if (selectedOption === 'UPLOAD') {
       openGallery();
     }
+
+    if (selectedOption === 'FACE') {
+      navigation.navigate('Face');
+    }
   };
 
   const isDisabled = !selectedOption;
@@ -81,6 +85,17 @@ const HomeScreen = ({ navigation, route }) => {
       >
         <Text style={styles.optionIcon}>📁</Text>
         <Text style={styles.optionText}>Upload PAN Card</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        style={[
+          styles.optionCard,
+          selectedOption === 'FACE' && styles.activeCard,
+        ]}
+        onPress={() => setSelectedOption('FACE')}
+      >
+        <Text style={styles.optionIcon}>👦</Text>
+        <Text style={styles.optionText}>Capture Face</Text>
       </TouchableOpacity>
 
       {/* Proceed */}
